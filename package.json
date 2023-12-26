@@ -1,0 +1,32 @@
+{
+  "name": "namste-react",
+  "version": "1.0.0",
+  "description": "Let's Try It.",
+  "scripts": {
+    "test": "jest",
+    "start": "parcel index1.html",
+    "build":"parcel build index1.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Yash-9558/Namste-React.git"
+  },
+  "keywords": [],
+  "author": "Yash Gohel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Yash-9558/Namste-React/issues"
+  },
+  "homepage": "https://github.com/Yash-9558/Namste-React#readme",
+  "devDependencies": {
+    "parcel": "^2.10.3",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "browserslist":[
+    "last 2 versions"
+  ]
+}
