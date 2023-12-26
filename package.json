@@ -4,8 +4,8 @@
   "description": "Let's Try It.",
   "scripts": {
     "test": "jest",
-    "start": "parcel index1.html",
-    "build":"parcel build index1.html"
+    "start": "parcel index.html",
+    "build":"parcel build index.html"
   },
   "repository": {
     "type": "git",
