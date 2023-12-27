@@ -10,6 +10,7 @@ const Shimmer = () => {
   //   };
   //   return <div className="shimmer-container">{arr}</div>;
 
+  //Shimmer-UI That use For better UX
   const shimmerCards = [];
   for (let i = 0; i < 20; i++) {
     shimmerCards.push(<div key={i} className="shimmer-card"></div>);
