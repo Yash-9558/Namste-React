@@ -31,9 +31,6 @@
   box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
     rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
 }
-.search {
-  padding: 10px;
-}
 .res-logo {
   width: 100%;
 }
@@ -43,7 +40,7 @@
   justify-content: space-between;
 }
 .filter-btn {
-  margin: 5px;
+  margin: 10px;
   cursor: pointer;
 }
 
@@ -58,4 +55,18 @@
   padding: 5px;
   margin: 5px;
   background-color: #f0f0f0;
+}
+
+.login {
+  margin: 5px;
+  width: 75px;
+  cursor: pointer;
+}
+
+.filter {
+  display: flex;
+  justify-content: center;
+}
+.search {
+  margin: 10px;
 }

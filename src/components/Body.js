@@ -4,6 +4,8 @@ import Shimmer from "./Shimmer";
 
 const Body = () => {
   const [resList, setResList] = useState([]);
+  const [searchText, setSearchText] = useState("");
+  const [filterResList, setFilterResList] = useState([]);
   //(3)
   useEffect(() => {
     fetchData();
@@ -18,30 +20,53 @@ const Body = () => {
     setResList(
       json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
+    setFilterResList(
+      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    );
   };
 
   // console.log("HELLO"); (1)
-
-  if (resList.length === 0) {
-    //api is not responded yet
-    return <Shimmer />;
-  }
-
   // (2)
-  return (
+  return resList.length === 0 ? (
+    <Shimmer />
+  ) : (
     <div className="body">
       <div className="filter">
+        <div className="search">
+          <input
+            type="text"
+            className="search-box"
+            value={searchText}
+            onChange={(e) => {
+              setSearchText(e.target.value);
+            }}
+          />
+          <button
+            onClick={() => {
+              setFilterResList(
+                resList.filter((res) =>
+                  //         (convert-to-lowercase)
+                  res.info.name.toLowerCase().includes(searchText.toLowerCase())
+                )
+              );
+            }}
+          >
+            Search
+          </button>
+        </div>
         <button
           className="filter-btn"
           onClick={() => {
-            setResList(resList.filter((res) => res.info.avgRating >= 4.5));
+            setFilterResList(
+              resList.filter((res) => res.info.avgRating >= 4.5)
+            );
           }}
         >
           Top Rated Restaurants
         </button>
       </div>
       <div className="res-container">
-        {resList.map((res) => (
+        {filterResList.map((res) => (
           <RestaurantCard key={res.info.id} resData={res.info} />
         ))}
       </div>
