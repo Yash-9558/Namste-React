@@ -4,4 +4,7 @@ const LOGO_URL =
 const CDN_URL =
   "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/";
 
-module.exports = { LOGO_URL, CDN_URL };
+const RESTAURANT_URL =
+  "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=22.9755494&lng=72.6154686&restaurantId=";
+
+module.exports = { LOGO_URL, CDN_URL, RESTAURANT_URL };
