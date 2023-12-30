@@ -70,3 +70,6 @@
 .search {
   margin: 10px;
 }
+.search-btn {
+  cursor: pointer;
+}

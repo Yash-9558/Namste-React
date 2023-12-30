@@ -42,6 +42,7 @@ const Body = () => {
             }}
           />
           <button
+            className="search-btn"
             onClick={() => {
               setFilterResList(
                 resList.filter((res) =>
