@@ -73,3 +73,7 @@
 .search-btn {
   cursor: pointer;
 }
+.link {
+  color: black;
+  text-decoration: none;
+}
