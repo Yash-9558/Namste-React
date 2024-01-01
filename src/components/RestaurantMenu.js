@@ -32,7 +32,6 @@ const RestaurantMenu = () => {
   const fetchMenu = async () => {
     const data = await fetch(RESTAURANT_URL + resId);
     const json = await data.json();
-    // console.log(json.data);
     setResInfo(json.data);
     setFilterItemCards(
       json?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[5]?.card
@@ -40,12 +39,10 @@ const RestaurantMenu = () => {
     );
   };
 
-  // console.log(resInfo);
   if (resInfo === null) return <Shimmer />;
 
   const { name, cuisines, costForTwoMessage } =
     resInfo?.cards[0]?.card?.card?.info;
-  // console.log(filterItemCards);
   return (
     <div className="menu">
       <h1>{name}</h1>

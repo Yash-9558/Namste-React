@@ -77,3 +77,10 @@
   color: black;
   text-decoration: none;
 }
+.user-card {
+  width: 250px;
+  height: 250px;
+  padding: 5px;
+  margin: 5px;
+  background-color: #f0f0f0;
+}
