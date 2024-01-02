@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import RestaurantCard from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Body = () => {
   const [resList, setResList] = useState([]);
@@ -26,7 +27,15 @@ const Body = () => {
     );
   };
 
-  // console.log("HELLO"); (1)
+  const onlineStatus = useOnlineStatus();
+
+  if (!onlineStatus) {
+    return <h1>You Are Offline</h1>;
+  }
+
+  // jyare pan Body component mount thay tyare useOnlineStatus component pan mount thay tyare j check thai jay (darek mounting vakhte ([] <-- useEffect execute thay))
+  // console.log("HELLO");
+  // (1)
   // (2)
   return resList.length === 0 ? (
     <Shimmer />
