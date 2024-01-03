@@ -33,7 +33,7 @@ const Body = () => {
     return <h1>You Are Offline</h1>;
   }
 
-  // jyare pan Body component mount thay tyare useOnlineStatus component pan mount thay tyare j check thai jay (darek mounting vakhte ([] <-- useEffect execute thay))
+  // jyare pan Body component mount thay tyare useOnlineStatus component pan mount thay tyare j check thai jay (darek mounting(click on header) vakhte ([] <-- useEffect execute thay))
   // console.log("HELLO");
   // (1)
   // (2)
