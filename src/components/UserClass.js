@@ -34,7 +34,7 @@ class UserClass extends React.Component {
   render() {
     console.log(this.props.name + "Child Render");
     return (
-      <div className="user-card">
+      <div className="w-[250px] h-[250px] p-2 m-2 bg-gray-100">
         <img
           src={this.state.userInfo.avatar_url}
           style={{ height: "100px", width: "100px" }}

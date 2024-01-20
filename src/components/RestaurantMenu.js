@@ -41,25 +41,21 @@ const RestaurantMenu = () => {
 
   if (resInfo === null) return <Shimmer />;
 
-  const { name, cuisines, costForTwoMessage } =
-    resInfo?.cards[0]?.card?.card?.info;
+  const { name } = resInfo?.cards[0]?.card?.card?.info;
   return (
-    <div className="menu">
-      <h1>{name}</h1>
-      <p>
-        {cuisines.join(", ")} - {costForTwoMessage}
-      </p>
+    <div className="m-4">
+      <h1 className="font-bold text-xl m-2">{name}</h1>
       <button
+        className="p-2 bg-gray-100 m-2 rounded-lg font-bold text-lg hover:bg-gray-200"
         onClick={() => {
           setVegOnly((vegOnly) => !vegOnly);
         }}
       >
         {vegOnly ? "All (Veg + Non-Veg)" : "Veg Only"}
       </button>
-      <h2>Menu</h2>
       <ul>
         {filterItemCards.map((item) => (
-          <li key={item.card.info.id}>
+          <li key={item.card.info.id} className="p-2">
             {item.card.info.name} - ₹ {item.card.info.price / 100}
           </li>
         ))}

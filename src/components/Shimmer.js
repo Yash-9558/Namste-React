@@ -13,9 +13,14 @@ const Shimmer = () => {
   //Shimmer-UI That use For better UX
   const shimmerCards = [];
   for (let i = 0; i < 20; i++) {
-    shimmerCards.push(<div key={i} className="shimmer-card"></div>);
+    shimmerCards.push(
+      <div
+        key={i}
+        className="m-4 p-4 w-[250px] h-[400px] rounded-lg bg-gray-100"
+      ></div>
+    );
   }
-  return <div className="shimmer-container">{shimmerCards}</div>;
+  return <div className="flex flex-wrap justify-around">{shimmerCards}</div>;
 };
 
 export default Shimmer;

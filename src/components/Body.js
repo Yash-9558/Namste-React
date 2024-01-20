@@ -41,18 +41,18 @@ const Body = () => {
     <Shimmer />
   ) : (
     <div className="body">
-      <div className="filter">
-        <div className="search">
+      <div className="flex justify-center">
+        <div className="m-4 p-4">
           <input
             type="text"
-            className="search-box"
+            className="border border-black"
             value={searchText}
             onChange={(e) => {
               setSearchText(e.target.value);
             }}
           />
           <button
-            className="search-btn"
+            className="px-4 py-1 bg-green-100 rounded-lg"
             onClick={() => {
               setFilterResList(
                 resList.filter((res) =>
@@ -65,18 +65,20 @@ const Body = () => {
             Search
           </button>
         </div>
-        <button
-          className="filter-btn"
-          onClick={() => {
-            setFilterResList(
-              resList.filter((res) => res.info.avgRating >= 4.5)
-            );
-          }}
-        >
-          Top Rated Restaurants
-        </button>
+        <div className="m-4 p-4">
+          <button
+            className="px-4 py-1 bg-gray-100 rounded-lg"
+            onClick={() => {
+              setFilterResList(
+                resList.filter((res) => res.info.avgRating >= 4.5)
+              );
+            }}
+          >
+            Top Rated Restaurants
+          </button>
+        </div>
       </div>
-      <div className="res-container">
+      <div className="flex flex-wrap justify-around">
         {filterResList.map((res) => (
           <Link
             className="link"
