@@ -7,7 +7,8 @@ import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import Contact from "./components/Contact";
 import RestaurantMenu from "./components/RestaurantMenu";
 // import Grocery from "./components/Grocery";
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useState, useEffect } from "react";
+import UserContext from "./utils/UserContext";
 
 //chunking
 //dynamic bundling
@@ -19,11 +20,24 @@ const Grocery = lazy(() => {
 });
 
 const AppLayout = () => {
+  const [userName, setUserName] = useState();
+  //authentication
+  useEffect(() => {
+    const data = {
+      name: "Yash Gohel",
+    };
+    setUserName(data.name);
+  }, []);
+
   return (
-    <div className="app">
-      <Header />
-      <Outlet />
-    </div>
+    <UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
+      <div className="app">
+        {/* <UserContext.Provider value={{ loggedInUser: userName, setUserName }}> */}
+        <Header />
+        {/* </UserContext.Provider> */}
+        <Outlet />
+      </div>
+    </UserContext.Provider>
   );
 };
 
@@ -53,7 +67,9 @@ const appRouter = createBrowserRouter([
         path: "/grocery",
         //react want something that we load --> fallback
         element: (
-          <Suspense fallback={<h1>Loading...</h1>}>
+          <Suspense
+            fallback={<h1 className="font-bold text-2xl m-4">Loading...</h1>}
+          >
             <Grocery />
           </Suspense>
         ),

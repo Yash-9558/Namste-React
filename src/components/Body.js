@@ -1,13 +1,17 @@
-import { useEffect, useState } from "react";
-import RestaurantCard from "./RestaurantCard";
+import { useContext, useEffect, useState } from "react";
+import RestaurantCard, { withPromotedLabel } from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserContext from "../utils/UserContext";
 
 const Body = () => {
   const [resList, setResList] = useState([]);
   const [searchText, setSearchText] = useState("");
   const [filterResList, setFilterResList] = useState([]);
+  const { loggedInUser, setUserName } = useContext(UserContext);
+
+  const RestaurantCardPromoted = withPromotedLabel(RestaurantCard);
   //(3)
   useEffect(() => {
     fetchData();
@@ -77,15 +81,29 @@ const Body = () => {
             Top Rated Restaurants
           </button>
         </div>
+        <div className="m-4 p-4">
+          <input
+            type="text"
+            className="border border-black"
+            value={loggedInUser}
+            onChange={(e) => {
+              setUserName(e.target.value);
+            }}
+          />
+        </div>
       </div>
       <div className="flex flex-wrap justify-around">
-        {filterResList.map((res) => (
+        {filterResList?.map((res) => (
           <Link
             className="link"
             to={"/restaurants/" + res.info.id}
             key={res.info.id}
           >
-            <RestaurantCard resData={res.info} />
+            {res?.info?.locality?.includes("Ghodasar") ? (
+              <RestaurantCardPromoted resData={res.info} />
+            ) : (
+              <RestaurantCard resData={res.info} />
+            )}
           </Link>
         ))}
       </div>
