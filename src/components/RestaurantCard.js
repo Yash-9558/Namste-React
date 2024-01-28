@@ -1,7 +1,10 @@
 import { CDN_URL } from "../utils/constants";
 const RestaurantCard = (props) => {
   return (
-    <div className="m-4 p-4 w-[250px] h-[400px] rounded-lg bg-gray-100 hover:mt-[-2px] hover:duration-[0.5s]">
+    <div
+      data-testid="resCard"
+      className="m-4 p-4 w-[250px] h-[400px] rounded-lg bg-gray-100 hover:mt-[-2px] hover:duration-[0.5s]"
+    >
       <img
         className="rounded-lg"
         src={CDN_URL + props.resData.cloudinaryImageId}
@@ -16,6 +19,7 @@ const RestaurantCard = (props) => {
   );
 };
 
+//higher order components
 export const withPromotedLabel = (RestaurantCard) => {
   return (props) => {
     return (
